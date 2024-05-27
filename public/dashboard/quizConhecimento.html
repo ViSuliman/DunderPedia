@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/quizConhecimentos.css">
+    <title>Quiz sobre The Office | DunderPedia</title>
+</head>
+<body>
+    <div class="header">
+         <div class="navbar">
+            <img src="../assets/icon/2.svg" class="logo">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="the_office.html">The Office</a></li>
+                <li><a href="sobre_mim.html">Sobre Mim</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="quiz-container" id="div_quiz">
+        <h1 class="the">Scranton Trivia</h1>
+        <h2>Teste o seu conhecimento sobre The Office!</h2>
+        <div id="quiz-content">
+        </div>
+        <div class="button-start-quiz" onclick="iniciar_quiz()"><p>Iniciar Quiz</p></div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <img src="../assets/icon/2.svg">
+            </div>
+            <div class="footer-copyrigth">
+                <span>
+                    Vitória Lemes Suliman © 2024
+                </span>
+                <br>
+                <span>
+                    Todos os direitos reservados
+                </span>
+            </div>
+
+            <div class="footer-social">
+                <a href="https://github.com/ViSuliman">
+                    <img src="../assets/icon/icons8-github.svg">
+                </a>
+                <a href="https://www.instagram.com/vilemes_/">
+                    <img src="../assets/icon/instagram-seeklogo.svg">
+                </a>
+                <a href="#">
+                    <img src="../assets/icon/linkedin-svgrepo-com.svg">
+                </a>
+                <a href="mailto: vitoria.suliman@sptech.school">
+                    <img src="../assets/icon/email-svgrepo-com.svg">
+                </a>
+            </div>
+        </div>
+    </div>
+  
+</body>
+
+<script>
+    var lista_perguntas = [
+        {
+            titulo: 'Qual é o nome do alter ego de Dwight Schrute?',
+            opcoes: [' Prison Mike','Date Mike','Agent Michael Scarn','Recyclops'],
+            numeroRespostaCerta: 4
+        },
+        {
+            titulo: 'Qual é o nome da empresa que compra a Dunder Mifflin?',
+            opcoes: ['Sabre','Utica Paper','Prince Family Paper', 'Staples'],
+           numeroRespostaCerta: 1
+        },
+        {
+            titulo: 'Um dos episódios mais famosos da série é o "The Injury", onde Michael queima seu pé acidentalmente em um(a)...?',
+            opcoes: ['Um fogão', 'Um forno elétrico','Uma grelha com bacons','Uma fogueira'],
+            numeroRespostaCerta: 3
+        },
+        {
+            titulo: 'Qual é o sabor de iogurte favorito da Pam?',
+            opcoes: ['Baunilha', 'Frutas Vermelhas','Chocolate', 'Morango'],
+            numeroRespostaCerta: 2
+        },
+        {
+            titulo: 'Onde o Jim pede a Pam em casamento?',
+            opcoes: ['Na Dunder Mifflin', 'Em um restaurante','Em um posto de gasolina','Na praia'],
+           numeroRespostaCerta: 3
+        },
+        {
+            titulo: 'Qual é o nome dos prêmios anuais que Michael entrega aos funcionários?',
+            opcoes: ['Os Scotts','Os Dummies','Os Dundies','Os Mifflins'],
+            numeroRespostaCerta: 3
+        },
+        {
+            titulo: 'Outro episódio muito famoso da série é o "Stress Relief", onde um personagem começa um incêndio com o objetivo de fazer um treinamento preventivo, qual personagem foi o responsável por causa um pânico generalizado no escritório?',
+            opcoes: ['Dwight', 'Ryan','Michael','Creed' ],
+            numeroRespostaCerta: 1
+        },
+        {
+            titulo: 'Qual é o nome do gato que o Dwight deu para Angela?',
+            opcoes: ['Bandit', 'Sprinkles','Garbage','Comstock'],
+            numeroRespostaCerta: 3
+        }
+        ];
+
+        var currentQuestionIndex = 0;
+        var score = 0;
+
+        function iniciar_quiz() {
+            document.querySelector('.button-start-quiz').style.display = 'none';
+            mostrar_pergunta();
+        }
+
+        function mostrar_pergunta() {
+            if (currentQuestionIndex < lista_perguntas.length) {
+                var pergunta = lista_perguntas[currentQuestionIndex];
+                var respostas = "";
+                for (var i = 0; i < pergunta.opcoes.length; i++) {
+                    respostas += `<button onclick="responder(${i + 1})">${pergunta.opcoes[i]}</button>`
+                }
+                document.getElementById('quiz-content').innerHTML = `
+                    <h3>${pergunta.titulo}</h3>
+                    <div>
+                        ${respostas}
+                    </div>
+                `;;
+            } else {
+                mostrar_resultado();
+            }
+        }
+
+        function responder(opcaoEscolhida) {
+            var pergunta = lista_perguntas[currentQuestionIndex];
+            if (opcaoEscolhida === pergunta.numeroRespostaCerta) {
+                score++;
+            }
+            currentQuestionIndex++;
+            mostrar_pergunta();
+        }
+
+        function mostrar_resultado() {
+            var resultado = `
+                <h3>Você acertou ${score} de ${lista_perguntas.length} perguntas!</h3>
+                <button onclick="reiniciar_quiz()">Reiniciar Quiz</button>
+            `;
+            document.getElementById('quiz-content').innerHTML = resultado;
+        }
+
+        function reiniciar_quiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            iniciar_quiz();
+        }
+
+
+</script>
+

@@ -1,6 +1,6 @@
 @font-face {
     font-family: theOffice;
-    src: url(..\fonts\AmericanTypewriterRegular\AmericanTypewriterRegular.ttf);
+    src: url(../assets/fonts/TYPIST.TTF);
 }
 
 *{
@@ -19,6 +19,8 @@ html, body {
     justify-content: center;
     align-items: center;
 }
+
+
 
 a{
     all: unset;
@@ -47,7 +49,7 @@ a{
 
 .column span{
     font-family: theOffice;
-    font-weight: bolder 100px;
+    font-weight: bolder 200px;
     font-size: 28px;
     color: #000000;
 }
@@ -80,11 +82,13 @@ a{
     border-radius: 12px;
     background-color: transparent;
     width: 100%;
+    font-family: theOffice;
     transition: 0.4s;
 }  
 
 .input_container select{
     font-size: 1rem;
+    font-family: theOffice;
     padding: 12px 12px 12px 40px;
     margin: 16px 0;
     border: none;
