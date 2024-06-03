@@ -28,7 +28,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    padding: 15px 8%;
+    padding: 10px 7%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -62,7 +62,7 @@
 }
 
 .navbar ul li a:hover {
-    color: #ffd700; 
+    color: #FFC0CB ; 
 }
 
 .navbar-auth {
@@ -85,7 +85,7 @@
     border: none;
     font-weight: 500;
     color: black;
-    background-color: white;
+    background-color: #FFFFFF ;
 }
 
 .navbar-login {
@@ -114,7 +114,7 @@
     left: 0;
     z-index: -1;
     transition: all .4s;
-    color: #fff;
+    color: #2C3E50;
 }
 .navbar-login::after{
     transform: scaleX(1.4) scaleY(1.6);
