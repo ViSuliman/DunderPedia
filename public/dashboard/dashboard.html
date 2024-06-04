@@ -4,75 +4,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
     <title>DunderPedia | Dashboards</title>
 </head>
 
 <body>
     <div class="janela">
-        <div class="header-left">
-            <h1>DunderPedia</h1>
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+        <h1>DunderPedia</h1>
+        <div class="hello">
+            <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+        </div>
+        <div class="btn-nav">
+            <a href="dashboard.html">
+                <h3>The Dundie Dashboard</h3>
+            </a>
+        </div>
+        <div class="btn-nav">
+            <a href="quizConhecimento.html">
+                <h3>Quiz Conhecimento</h3>
+            </a>
+        </div>
+        <div class="btn-nav">
+            <a href="quizPersonalidade">
+                <h3>Quiz Personalidade</h3>
+            </a>
+        </div>
+        <div class="btn-nav">
+            <a href="btn-logout" onclick="limparSessao()">
+                <h3>Sair</h3>
+            </a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="seu-resultado">
+            <div>
+                <h1>Seu resultado</h1>
             </div>
-            <div class="btn-nav-white">
-                <a href="cards.html">
-                    <h3>The Dundie Dashboard</h3>
-                </a>
+            <div class="personagem-favorito">
+                <div class="titulo"></div>
+                <div class="foto-personagem">
+                    <img src="" alt="">
+                    <p></p>
+                </div>
             </div>
-            <div class="btn-nav">
-                <a href="quizConhecimento.html">
-                    <h3>Quiz Conhecimento</h3>
-                </a>
+            <div class="resultado-conhecimento">
+                <div class="titulo">
+                </div>
+                <div class="grafico-conhecimento">
+                    <canvas id="grafico-pessoal"></canvas>
+                </div>
             </div>
-            <div class="btn-nav-white">
-                <a href="quizPersonalidade">
-                    <h3>Quiz Personalidade</h3>
-                </a>
-            </div>
-            <div class="btn-nav">
-                <a href="btn-logout" onclick="limparSessao()">
-                    <h3>Sair</h3>
-                </a>
+            <div class="resultado-personalidade">
+                <div class="titulo"></div>
+                <div class="foto-personagem">
+                    <img src="" alt="">
+                    <p></p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="seu-resultado">
+    <div class="resultado-geral">
         <div>
-            <h1>Seu resultado</h1>
+            <h1>Resultado Geral</h1>
         </div>
         <div class="personagem-favorito">
             <div class="titulo"></div>
             <div class="foto-personagem">
-                    <img src="" alt="">
-                    <p></p>
-            </div>
-        </div>
-        <div class="resultado-conhecimento">
-            <div class="titulo">
-            </div>
-            <div class="grafico-conhecimento">
-                <canvas id="grafico-pessoal"></canvas>
-            </div>
-        </div>
-        <div class="resultado-personalidade">
-            <div class="titulo"></div>
-            <div class="foto-personagem">
-                    <img src="" alt="">
-                    <p></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="seu-resultado">
-        <div>
-            <h1>Seu resultado</h1>
-        </div>
-        <div class="personagem-favorito">
-            <div class="titulo"></div>
-            <div class="foto-personagem">
-                    <img src="" alt="">
-                    <p></p>
+                <img src="" alt="">
+                <p></p>
             </div>
         </div>
         <div class="resultado-conhecimento">
@@ -85,8 +86,8 @@
         <div class="resultado-personalidade">
             <div class="titulo"></div>
             <div class="foto-personagem">
-                    <img src="" alt="">
-                    <p></p>
+                <img src="" alt="">
+                <p></p>
             </div>
         </div>
     </div>
@@ -209,5 +210,5 @@
         );
 
     }
-    
+
 </script>

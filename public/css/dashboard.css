@@ -1,0 +1,95 @@
+@font-face {
+    font-family: theOffice;
+    src: url(../assets/fonts/TYPIST.TTF);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.janela{
+    width: 250px;
+    height: 100vh;
+    background-color: #36558F;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.janela h1 {
+    font-size: 26px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-family: theOffice;
+    font-weight: 300;
+}
+
+.hello {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.hello h3 {
+    font-size: 18px;
+}
+
+.btn-nav {
+    margin-top: 70px;
+    margin-bottom: 10px;
+}
+
+.btn-nav a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 10px;
+    background-color: #85BDBF;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-nav a:hover {
+    background-color: #40376E;
+}
+
+.btn-nav-white a {
+    background-color: #555;
+}
+
+.btn-nav-white a:hover {
+    background-color: #96ACB7;
+}
+
+a h3 {
+    margin: 0;
+}
+
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    box-sizing: border-box;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+}
+.seu-resultado {
+    margin-top: 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
