@@ -9,17 +9,25 @@
     box-sizing: border-box;
 }
 
-.janela{
-    width: 250px;
-    height: 100vh;
+body {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.header-left{
+    width: 18vw;
+    height: 100%;
     background-color: #36558F;
     color: white;
     padding: 20px;
     box-sizing: border-box;
     position: fixed;
     display: flex;
+    align-items: center;
     justify-content: space-around;
     flex-direction: column;
+    position: fixed;
 }
 
 .janela h1 {
@@ -28,7 +36,7 @@
     margin-bottom: 50px;
     text-align: center;
     font-family: theOffice;
-    font-weight: 300;
+    font-weight: 300; 
 }
 
 .hello {
@@ -61,12 +69,18 @@
     background-color: #40376E;
 }
 
-.btn-nav-white a {
-    background-color: #555;
+.btn-nav-logout{
+    margin-top: 10px;
 }
 
-.btn-nav-white a:hover {
-    background-color: #96ACB7;
+.btn-nav-logout a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 10px;
+    background-color: #A54657;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 a h3 {
@@ -74,16 +88,57 @@ a h3 {
 }
 
 .content {
-    margin-left: 250px;
-    padding: 20px;
-    box-sizing: border-box;
-    flex: 1;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 80vw; 
+    margin-left: 20vw;
+    background-image: url(../assets/imgs/background_dashboard.png);
 }
 .seu-resultado {
-    margin-top: 0;
-    width: 50%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.personagem-favorito{
+    height: 25vh;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.foto-personagem{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.resultado-conhecimento{
+    height: 25vh;
+}
+
+.titulo{ 
+    font-family: theOffice;
+    font-size: 13px;
+}
+
+.resultado-geral{
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,3 +148,13 @@ a h3 {
     box-sizing: border-box;
 }
 
+.resultado-personalidade{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas{
+    height: 30vh;
+}

@@ -1,48 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/dashboard.css">
-    <title>DunderPedia | Dashboards</title>
+    <link rel="icon" href="./assets/icon/The Office.svg" type="image/x-icon">
+    <title>DunderPedia | The Dundie Dashboard</title>
 </head>
 
 <body>
-    <div class="janela">
-        <h1>DunderPedia</h1>
-        <div class="hello">
-            <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+        <div class="header-left">
+            <h1>DunderPedia</h1>
+            <img src="../assets/icon/2.svg" style="width: 100px;">
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+            <div class="btn-nav">
+                <a href="dashboard.html">
+                    <h3>The Dundie Dashboard</h3>
+                </a>
+            </div>
+            <div class="btn-nav">
+                <a href="quizConhecimento.html">
+                    <h3>Scranton Trivia</h3>
+                </a>
+            </div>
+            <div class="btn-nav">
+                <a href="quizPersonalidade">
+                    <h3>Quiz Personalidade</h3>
+                </a>
+            </div>
+            <div class="btn-nav-logout">
+                <a href="btn-logout" onclick="limparSessao()">
+                    <h3>Sair</h3>
+                </a>
+            </div>
         </div>
-        <div class="btn-nav">
-            <a href="dashboard.html">
-                <h3>The Dundie Dashboard</h3>
-            </a>
-        </div>
-        <div class="btn-nav">
-            <a href="quizConhecimento.html">
-                <h3>Quiz Conhecimento</h3>
-            </a>
-        </div>
-        <div class="btn-nav">
-            <a href="quizPersonalidade">
-                <h3>Quiz Personalidade</h3>
-            </a>
-        </div>
-        <div class="btn-nav">
-            <a href="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </a>
-        </div>
-    </div>
 
     <div class="content">
         <div class="seu-resultado">
-            <div>
-                <h1>Seu resultado</h1>
+            <div class="titulo">
+                <h1>Seus resultados</h1>
             </div>
             <div class="personagem-favorito">
-                <div class="titulo"></div>
+                <div class="titulo">
+                    <h2>Personagem favorito</h2>
+                </div>
+                <div class="foto-personagem" id="div_personagem">
+                    <img src="" alt="">
+                    <p></p>
+                </div>
+            </div>
+            <div class="resultado-conhecimento">
+                <div class="titulo">
+                    <h2>Resultado Scranton Trivia</h2>
+                </div>
+                <div class="grafico-conhecimento">
+                    <canvas id="grafico-pessoal"></canvas>
+                </div>
+            </div>
+            <div class="resultado-personalidade">
+                <div class="titulo">
+                    <h2>Resultado Quiz de Personalidade</h2>
+                </div>
+                <div class="foto-personagem">
+                    <img src="" alt="">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="resultado-geral">
+            <div class="titulo">
+                <h1>Resultados Gerais</h1>
+            </div>
+            <div class="personagem-favorito">
+                <div class="titulo">
+                    <h2>Personagem favorito</h2>
+                </div>
                 <div class="foto-personagem">
                     <img src="" alt="">
                     <p></p>
@@ -50,13 +86,16 @@
             </div>
             <div class="resultado-conhecimento">
                 <div class="titulo">
+                    <h2>Resultado Geral Scranton Trivia</h2>
                 </div>
                 <div class="grafico-conhecimento">
-                    <canvas id="grafico-pessoal"></canvas>
+                    <canvas id="grafico-geral"></canvas>
                 </div>
             </div>
             <div class="resultado-personalidade">
-                <div class="titulo"></div>
+                <div class="titulo">
+                    <h2>Resultado Geral Quiz Personalidade</h2>
+                </div>
                 <div class="foto-personagem">
                     <img src="" alt="">
                     <p></p>
@@ -64,35 +103,7 @@
             </div>
         </div>
     </div>
-
-    <div class="resultado-geral">
-        <div>
-            <h1>Resultado Geral</h1>
-        </div>
-        <div class="personagem-favorito">
-            <div class="titulo"></div>
-            <div class="foto-personagem">
-                <img src="" alt="">
-                <p></p>
-            </div>
-        </div>
-        <div class="resultado-conhecimento">
-            <div class="titulo">
-            </div>
-            <div class="grafico-conhecimento">
-                <canvas id="grafico-geral"></canvas>
-            </div>
-        </div>
-        <div class="resultado-personalidade">
-            <div class="titulo"></div>
-            <div class="foto-personagem">
-                <img src="" alt="">
-                <p></p>
-            </div>
-        </div>
-    </div>
 </body>
-
 </html>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -102,7 +113,47 @@
 
     let proximaAtualizacao;
 
-    window.onload = obterDadosGrafico(sessionStorage.ID_USUARIO);
+    function icon() {
+        if (sessionStorage.PERSONEGEM == 1) {
+            div_personagem.innerHTML = `<img src="../assets/imgs/michael_icon_profile.jpg">`
+        } else if (sessionStorage.PERSONEGEM == 2){
+            div_personagem.innerHTML = `<img src="../assets/imgs/dwight_icon_profile.jpg">`
+        } else if(sessionStorage.PERSONEGEM == 3){
+            div_personagem.innerHTML = `<img src="../assets/imgs/jim_icon_profile.png">`
+        } else if (sessionStorage.PERSONEGEM == 4){
+            div_personagem.innerHTML = `<img src="../assets/imgs/pam_icon_profile.jpg">">`
+        } else if(sessionStorage.PERSONEGEM == 5){
+            div_personagem.innerHTML=`<img src="../assets/imgs/ryan_icon_profile.png">`
+        }else if (sessionStorage.PERSONEGEM == 6){
+            div_personagem.innerHTML = `<img src="../assets/imgs/andy_icon_profile.webp">`
+        } else if(sessionStorage.PERSONEGEM == 7){
+            div_personagem.innerHTML = `<img src="../assets/imgs/stanley_icon_profile.webp">`
+        }else if(sessionStorage.PERSONEGEM == 8){
+            div_personagem.innerHTML = `<img src="../assets/imgs/kelvin_icon_profile.jpg">`
+        }else if (sessionStorage.PERSONEGEM == 9){
+            div_personagem.innerHTML = `<img src="../assets/imgs/meredith_icon_profile.avif">`
+        }else if(sessionStorage.PERSONEGEM == 10){
+            div_personagem.innerHTML = `<img src="../assets/imgs/angela_icon_profile.png">`
+        }else if (sessionStorage.PERSONEGEM == 11){
+            div_personagem.innerHTML = `<img src="../assets/imgs/oscar_icon_profile.jpg">`
+        }else if(sessionStorage.PERSONEGEM == 12){
+            div_personagem.innerHTML = `<img src="../assets/imgs/phyllis_icon_profile.avif">`
+        }else if (sessionStorage.PERSONEGEM == 13){
+            div_personagem.innerHTML = `<img src="../assets/imgs/TobyFlenderson_icon_profile.webp">`
+        }else if (sessionStorage.PERSONEGEM == 14){
+            div_personagem.innerHTML = `<img src="../assets/imgs/kelly_icon_profile.webp">`
+        }else if (sessionStorage.PERSONEGEM == 15){
+            div_personagem.innerHTML = `<img src="../assets/imgs/creed_icon_profile.webp">`
+        } else{
+            console.log(sessionStorage.PERSONEGEM);
+            div_personagem.innerHTML = `<img src="../assets/imgs/erin_icon_profile.webp">`
+        }
+    }
+
+    window.onload = function() {
+        obterDadosGrafico(sessionStorage.ID_USUARIO);
+        icon();
+    };
 
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
