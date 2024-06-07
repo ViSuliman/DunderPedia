@@ -12,7 +12,20 @@ function buscarUltimoResultadoQuiz(idUsuario,idQuiz){
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
         return database.executar(instrucaoSql);
 }
+function ranking(){
+    var instrucaoSql = `
+        SELECT personagem_favorito, 
+        count(personagem_favorito) as Contador 
+        FROM usuario 
+        GROUP BY personagem_favorito 
+        ORDER BY Contador DESC 
+        LIMIT 1`;
+
+        console.log("Executando a instrução SQL: \n" + instrucaoSql);
+        return database.executar(instrucaoSql);
+}
 
 module.exports = {
-    buscarUltimoResultadoQuiz
+    buscarUltimoResultadoQuiz,
+    ranking
 }

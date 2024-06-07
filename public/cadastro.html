@@ -90,8 +90,7 @@
                 button_ocultar.innerHTML = '<img id="img_ocultar" src="./assets/imgs/olho_aberto.png">';
             }
         }
-
-
+      
   function cadastrar() {
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
@@ -112,9 +111,36 @@
         alert("Preencha todos os campos!");
 
       return false;
-    } else {
+    } else if(senhaVar != confirmacaoSenhaVar) {
       setInterval(sumirMensagem, 5000);
+    } else if(senhaVar.lengthtt  < 6){
+      alert("a senha deve conter ao menos 6 caracteres")
     }
+
+    var caracteresEspeciais = "!@#$%^&*()-+";
+    var temCaracterEspecial = false;
+
+    for (var i = 0; i < senha.length; i++) {
+                if (caracteresEspeciais.indexOf(senha[i]) !== -1) {
+                    temCaracterEspecial = true;
+                    break;
+                }
+            }
+
+            if (!temCaracterEspecial) {
+                div_mensagem.innerHTML += `A senha deve conter pelo menos um caractere especial<br>`;
+            } else {
+                var indice_arroba = email.indexOf("@");
+
+                if (indice_arroba < 0) {
+                    div_mensagem.innerHTML += `Email inválido<br>`;
+                } else {
+                    //window.location.href = "login.html";
+                    cadastrar()
+                }
+            }
+        
+    
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -161,7 +187,5 @@
   function sumirMensagem() {
     div_erro.style.display = "none";
   }
-
-
     </script>
 </script>
