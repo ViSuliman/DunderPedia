@@ -32,7 +32,7 @@
             </a>
         </div>
         <div class="btn-nav-logout">
-            <a href="btn-logout" onclick="limparSessao()">
+            <a onclick="limparSessao()">
                 <h3>Sair</h3>
             </a>
         </div>
@@ -111,8 +111,19 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-    ranking();
+    function validarSessao() {
+    var email = sessionStorage.EMAIL_USUARIO;
+    var nome = sessionStorage.NOME_USUARIO;
 
+    var b_usuario = document.getElementById("b_usuario");
+
+    if (email != null && nome != null) {
+        b_usuario.innerHTML = nome;
+    } else {
+        window.location = "../login.html";
+    }
+}
+    
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     let proximaAtualizacao;
@@ -155,8 +166,10 @@
     }
 
     window.onload = function () {
+        validarSessao();
         obterDadosGrafico(sessionStorage.ID_USUARIO);
         icon();
+        ranking();
     };
 
     // O gráfico é construído com três funções:
@@ -177,7 +190,22 @@
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                    plotarGrafico(resposta, idUsuario);
+                    plotarGraficoPessoal(resposta, idUsuario);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error}`);
+            });
+
+        fetch(`/resultado/1`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                    plotarGraficoGeral(resposta);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -191,29 +219,8 @@
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, idUsuario) {
+    function plotarGraficoPessoal(resposta, idUsuario) {
         const ctxPessoal = document.getElementById('grafico-pessoal');
-
-        // const ctxGeral = document.getElementById('grafico-geral');
-
-        // new Chart(ctxGeral, {
-        //     type: 'bar',
-        //     data: {
-        //         labels: ['Acertos', 'Erros'],
-        //         datasets: [{
-        //             label: '# of Votes',
-        //             data: [12, 19],
-        //             borderWidth: 1
-        //         }]
-        //     },
-        //     options: {
-        //         scales: {
-        //             y: {
-        //                 beginAtZero: true
-        //             }
-        //         }
-        //     }
-        // });
 
         console.log('iniciando plotagem do gráfico...' + resposta[0].total_acertos);
 
@@ -292,4 +299,56 @@
             });
     }
 
+    function plotarGraficoGeral(resposta) {
+        const ctxGeral = document.getElementById('grafico-geral');
+
+        console.log('iniciando plotagem do gráfico...' + resposta);
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+        let data = [];
+        for (var i = 0; i < resposta.length; i++) {
+            labels.push(resposta[i].nome);
+            data.push(Number(resposta[i].acertos));
+        }
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Ranking',
+                data: data,
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+        type: 'line',
+        data: dados,
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById("grafico-geral"),
+            config
+        );
+
+    }
+
+    function limparSessao() {
+        sessionStorage.clear();
+        window.location = "../login.html";
+    }
 </script>

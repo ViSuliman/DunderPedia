@@ -23,7 +23,7 @@
         <h2>Teste o seu conhecimento sobre The Office!</h2>
         <div id="quiz-content">
         </div>
-        <div class="button-start-quiz" onclick="iniciar_quiz()"><p>Iniciar Quiz</p></div>
+        <div onclick="iniciarQuiz()" id="botao-iniciar-quiz"><p>Iniciar Quiz</p></div>
     </div>
     <div class="footer">
         <div class="container">
@@ -69,7 +69,7 @@
         {
             titulo: 'Qual é o nome da empresa que compra a Dunder Mifflin?',
             opcoes: ['Sabre','Utica Paper','Prince Family Paper', 'Staples'],
-           numeroRespostaCerta: 1
+            numeroRespostaCerta: 1
         },
         {
             titulo: 'Um dos episódios mais famosos da série é o "The Injury", onde Michael queima seu pé acidentalmente em um(a)...?',
@@ -84,7 +84,7 @@
         {
             titulo: 'Onde o Jim pede a Pam em casamento?',
             opcoes: ['Na Dunder Mifflin', 'Em um restaurante','Em um posto de gasolina','Na praia'],
-           numeroRespostaCerta: 3
+            numeroRespostaCerta: 3
         },
         {
             titulo: 'Qual é o nome dos prêmios anuais que Michael entrega aos funcionários?',
@@ -104,62 +104,77 @@
         {
             titulo: 'Quem é o gerente regional da Dunder Mifflin na primeira temporada?',
             opcoes: ['Dwight','Jim','Michael','Toby'],
-            nummeroRespostaCerta: 3
+            numeroRespostaCerta: 3
         },
         {
-            tiulo: 'Qual o nome da namorada do Jim na primeira temporada?',
+            titulo: 'Qual o nome da namorada do Jim na primeira temporada?',
             opcoes:['Katy','Pam','Karen','Cathy'],
+            numeroRespostaCerta: 1
         }
         ];
 
-        var currentQuestionIndex = 0;
-        var score = 0;
+        var indiceQuestaoAtual = 0;
+        var pontuacao = 0;
 
-        function iniciar_quiz() {
-            document.querySelector('.button-start-quiz').style.display = 'none';
-            mostrar_pergunta();
+        function iniciarQuiz() {
+            document.getElementById('botao-iniciar-quiz').style.display = 'none';
+            mostrarPergunta();
         }
 
-        function mostrar_pergunta() {
-            if (currentQuestionIndex < lista_perguntas.length) {
-                var pergunta = lista_perguntas[currentQuestionIndex];
-                var respostas = "";
+        function mostrarPergunta() {
+            if (indiceQuestaoAtual < lista_perguntas.length) {
+                var pergunta = lista_perguntas[indiceQuestaoAtual];
+                var opcoes = "";
                 for (var i = 0; i < pergunta.opcoes.length; i++) {
-                    respostas += `<button onclick="responder(${i + 1})">${pergunta.opcoes[i]}</button>`
+                    opcoes += `<button onclick="responder(${i + 1})">${pergunta.opcoes[i]}</button>`
                 }
                 document.getElementById('quiz-content').innerHTML = `
                     <h3>${pergunta.titulo}</h3>
                     <div>
-                        ${respostas}
+                        ${opcoes}
                     </div>
                 `;
             } else {
-                mostrar_resultado();
+                mostrarResultado();
             }
         }
 
         function responder(opcaoEscolhida) {
-            var pergunta = lista_perguntas[currentQuestionIndex];
-            if (opcaoEscolhida === pergunta.numeroRespostaCerta) {
-                score++;
+            var pergunta = lista_perguntas[indiceQuestaoAtual];
+            if (opcaoEscolhida == pergunta.numeroRespostaCerta) {
+                pontuacao++;
             }
-            currentQuestionIndex++;
-            mostrar_pergunta();
+            indiceQuestaoAtual++;
+            mostrarPergunta();
         }
 
-        function mostrar_resultado() {
+        function mostrarResultado() {
+            fetch(`/resultado/1/${sessionStorage.ID_USUARIO}/${pontuacao}`, { method: "POST", cache: 'no-store' }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Resultado inserido com sucesso!`);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na inserção do resultado: ${error}`);
+            });
+
             var resultado = `
-                <h3>Você acertou ${score} de ${lista_perguntas.length} perguntas!</h3>
-                <button onclick="reiniciar_quiz()">Reiniciar Quiz</button>
+                <h3>Você acertou ${pontuacao} de ${lista_perguntas.length} perguntas!</h3>
+                <button onclick="reiniciarQuiz()">Reiniciar Quiz</button>
             `;
             document.getElementById('quiz-content').innerHTML = resultado;
         }
 
-        function reiniciar_quiz() {
-            currentQuestionIndex = 0;
-            score = 0;
-            iniciar_quiz();
+        function reiniciarQuiz() {
+            indiceQuestaoAtual = 0;
+            pontuacao = 0;
+            iniciarQuiz();
         }
-
+        
+        
 </script>
 
