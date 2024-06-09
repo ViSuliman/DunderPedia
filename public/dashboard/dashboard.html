@@ -27,7 +27,7 @@
             </a>
         </div>
         <div class="btn-nav">
-            <a href="quizPersonalidade">
+            <a href="quizPersonalidade.html">
                 <h3>Quiz Personalidade</h3>
             </a>
         </div>
@@ -64,7 +64,7 @@
                 <div class="titulo">
                     <h2>Resultado Quiz de Personalidade</h2>
                 </div>
-                <div class="foto-personagem">
+                <div class="foto-personagem" id="div_personalidade_pessoal">
                     <img src="" alt="">
                     <p></p>
                 </div>
@@ -79,7 +79,7 @@
                 <div class="titulo">
                     <h2 id="teste">Personagem favorito</h2>
                 </div>
-                <div class="foto-personagem">
+                <div class="foto-personagem" id="div_personagem_favorito_geral">
                     <img src="" alt="">
                     <p></p>
                 </div>
@@ -96,7 +96,7 @@
                 <div class="titulo">
                     <h2>Resultado Geral Quiz Personalidade</h2>
                 </div>
-                <div class="foto-personagem">
+                <div class="foto-personagem" id="div_personalidade_geral">
                     <img src="" alt="">
                     <p></p>
                 </div>
@@ -165,6 +165,77 @@
         }
     }
 
+    function iconPersonagemFavoritoGeral(personagem) {
+        if (personagem == 1) {
+            div_personagem_favorito_geral.innerHTML = `<img src="../assets/imgs/michael_icon_profile.jpg" style="width: 100%;">`
+        } else if (personagem == 2) {
+            div_personagem_favorito_geral.innerHTML = `<img src="../assets/imgs/dwight_icon_profile.jpg" style="width: 100%;">`
+        } else if (personagem == 3) {
+            div_personagem_favorito_geral.innerHTML = `<img src="../assets/imgs/jim_icon_profile.png" style="width: 100%">`
+        } else if (personagem == 4) {
+            div_personagem_favorito_geral.innerHTML = `<img src="../assets/imgs/pam_icon_profile.jpg" style="width: 100%">`
+        } else if (personagem == 5) {
+            div_personagem_favorito_geral.innerHTML = `<img src="../assets/imgs/ryan_icon_profile.png" style="width: 100%">`
+        } else if (personagem == 6) {
+            div_personagem_favorito_geral.innerHTML = `<img src="../assets/imgs/andy_icon_profile.webp" style="width: 100%">`
+        } else if (personagem == 7) {
+            div_personagem_favorito_geral.innerHTML = `<img src="../assets/imgs/stanley_icon_profile.webp" style="width: 100%">`
+        } else if (personagem == 8) {
+            div_personagem_favorito_geral.innerHTML = `<img src="../assets/imgs/kelvin_icon_profile.jpg" style="width: 100%">`
+        } else if (personagem == 9) {
+            div_personagem_favorito_geral.innerHTML = `<img src="../assets/imgs/meredith_icon_profile.avif" style="width: 100%">`
+        } else if (personagem == 10) {
+            div_personagem_favorito_geral.innerHTML = `<img src="../assets/imgs/angela_icon_profile.png" style="width: 100%">`
+        } else if (personagem == 11) {
+            div_personagem_favorito_geral.innerHTML = `<img src="../assets/imgs/oscar_icon_profile.jpg" style="width: 100%">`
+        } else if (personagem == 12) {
+            div_personagem_favorito_geral.innerHTML = `<img src="../assets/imgs/phyllis_icon_profile.avif" style="width: 100%">`
+        } else if (personagem == 13) {
+            div_personagem_favorito_geral.innerHTML = `<img src="../assets/imgs/TobyFlenderson_icon_profile.webp" style="width: 100%">`
+        } else if (personagem == 14) {
+            div_personagem_favorito_geral.innerHTML = `<img src="../assets/imgs/kelly_icon_profile.webp" style="width: 100%">`
+        } else if (personagem == 15) {
+            div_personagem_favorito_geral.innerHTML = `<img src="../assets/imgs/creed_icon_profile.webp" style="width: 100%">`
+        } else {
+            console.log(personagem);
+            div_personagem_favorito_geral.innerHTML = `<img src="../assets/imgs/erin_icon_profile.webp" style="width: 100%">`
+        }
+    }
+
+    function iconPersonalidadePessoal(personagem) {
+        if (personagem == 1) {
+            div_personalidade_pessoal.innerHTML = `<img src="../assets/imgs/michael_icon_profile.jpg" style="width: 100%;">`
+        } else if (personagem == 2) {
+            div_personalidade_pessoal.innerHTML = `<img src="../assets/imgs/dwight_icon_profile.jpg" style="width: 100%;">`
+        } else if (personagem == 3) {
+            div_personalidade_pessoal.innerHTML = `<img src="../assets/imgs/jim_icon_profile.png" style="width: 100%">`
+        } else if (personagem == 4) {
+            div_personalidade_pessoal.innerHTML = `<img src="../assets/imgs/pam_icon_profile.jpg" style="width: 100%">`
+        } else if (personagem == 7) {
+            div_personalidade_pessoal.innerHTML = `<img src="../assets/imgs/stanley_icon_profile.webp" style="width: 100%">`
+        } else if (personagem == 13) {
+            div_personalidade_pessoal.innerHTML = `<img src="../assets/imgs/TobyFlenderson_icon_profile.webp" style="width: 100%">`
+        } else if (personagem == 15) {
+            div_personalidade_pessoal.innerHTML = `<img src="../assets/imgs/creed_icon_profile.webp" style="width: 100%">`
+        }
+    }
+    function iconPersonalidadeGeral(personagem) {
+        if (personagem == 1) {
+            div_personalidade_geral.innerHTML = `<img src="../assets/imgs/michael_icon_profile.jpg" style="width: 100%;">`
+        } else if (personagem == 2) {
+            div_personalidade_geral.innerHTML = `<img src="../assets/imgs/dwight_icon_profile.jpg" style="width: 100%;">`
+        } else if (personagem == 3) {
+            div_personalidade_geral.innerHTML = `<img src="../assets/imgs/jim_icon_profile.png" style="width: 100%">`
+        } else if (personagem == 4) {
+            div_personalidade_geral.innerHTML = `<img src="../assets/imgs/pam_icon_profile.jpg" style="width: 100%">`
+        } else if (personagem == 7) {
+            div_personalidade_geral.innerHTML = `<img src="../assets/imgs/stanley_icon_profile.webp" style="width: 100%">`
+        } else if (personagem == 13) {
+            div_personalidade_geral.innerHTML = `<img src="../assets/imgs/TobyFlenderson_icon_profile.webp" style="width: 100%">`
+        } else if (personagem == 15) {
+            div_personalidade_geral.innerHTML = `<img src="../assets/imgs/creed_icon_profile.webp" style="width: 100%">`
+        }
+    }
     window.onload = function () {
         validarSessao();
         obterDadosGrafico(sessionStorage.ID_USUARIO);
@@ -184,7 +255,6 @@
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function obterDadosGrafico(idUsuario) {
-
         fetch(`/resultado/1/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
@@ -214,6 +284,41 @@
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error}`);
             });
+        
+        fetch(`/resultado/2/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                    mostrarPersonalidadePessoal(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error}`);
+            });
+        
+        fetch(`/resultado/personalidade-mais-comum`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log("NumeroPersonagem: " + JSON.stringify(resposta[0]));
+                    iconPersonalidadeGeral(resposta[0].numeroPersonagem);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error}`);
+            });
+    }
+
+    function mostrarPersonalidadePessoal(resposta) {
+        var numeroPersonalidade = Number(resposta[0].total_acertos);
+        iconPersonalidadePessoal(numeroPersonalidade);
     }
 
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
@@ -287,6 +392,7 @@
                     resposta.json().then((resposta) => {
                         console.log('Resposta do banco: ' + resposta[0]);
                         teste.innerHTML = resposta[0].Contador;
+                        iconPersonagemFavoritoGeral(resposta[0].personagem_favorito);
                     })
 
                 } else {

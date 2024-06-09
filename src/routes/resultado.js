@@ -11,6 +11,10 @@ router.post("/:idQuiz/:idUsuario/:valor", function (req, res){
     resultadoController.inserirResultado(req, res);
 });
 
+router.get("/personalidade-mais-comum", function (req, res) {
+    resultadoController.buscarPersonalidadeMaisComum(req, res);
+});
+
 router.get("/ranking", function (req, res) {
     resultadoController.ranking(req, res);
 });

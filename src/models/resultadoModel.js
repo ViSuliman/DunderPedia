@@ -49,9 +49,24 @@ function ranking(){
         return database.executar(instrucaoSql);
 }
 
+function buscarPersonalidadeMaisComum(){
+    var instrucaoSql = `
+        SELECT valor as numeroPersonagem, 
+        count(valor) as Contador 
+        FROM resultado
+        WHERE fkQuiz = 2
+        GROUP BY numeroPersonagem 
+        ORDER BY Contador DESC 
+        LIMIT 1`;
+
+        console.log("Executando a instrução SQL: \n" + instrucaoSql);
+        return database.executar(instrucaoSql);
+}
+
 module.exports = {
     buscarUltimoResultadoQuiz,
     inserirResultado,
     mostrarResultadoGeral,
-    ranking
+    ranking,
+    buscarPersonalidadeMaisComum
 }

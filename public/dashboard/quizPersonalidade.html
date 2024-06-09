@@ -220,20 +220,28 @@
 
         function mostrarResultado() {
             var personagemPersonalidade = -1;
+            var nomePersonagem = "";
             if (michael > pam && michael > jim && michael > dwight && michael > stanley  && michael > toby){
-                personagem = 1;
+                personagemPersonalidade = 1;
+                nomePersonagem = "Michael";
             } else if(dwight > pam && dwight > jim && dwight > michael && dwight > stanley  && dwight > toby){
-                personagem = 2;
+                personagemPersonalidade = 2;
+                nomePersonagem = "Dwight";
             } else if(jim > pam && jim > dwight && jim > michael && jim > stanley  && jim > toby){
-                personagem = 3;
+                personagemPersonalidade = 3;
+                nomePersonagem = "Jim";
             } else if(pam > michael && pam > jim && pam > stanley && pam > dwight && pam > toby){
-                personagem = 4;
+                personagemPersonalidade = 4;
+                nomePersonagem = "Pam";
             } else if(stanley > pam && stanley > jim && stanley > michael && stanley > dwight  && stanley > toby){
-                personagem = 7;
+                personagemPersonalidade = 7;
+                nomePersonagem = "Stanley";
             } else if(toby > pam && toby > jim && toby > michael && toby > stanley  && toby > dwight){
-                personagem = 13;
+                personagemPersonalidade = 13;
+                nomePersonagem = "Toby"
             } else{
-                personagem = 10;
+                personagemPersonalidade = 15;
+                nomePersonagem = "Creed"
             }
             
             fetch(`/resultado/2/${sessionStorage.ID_USUARIO}/${personagemPersonalidade}`, { method: "POST", cache: 'no-store' }).then(function (response) {
@@ -250,7 +258,7 @@
             });
 
             var resultado = `
-                <h3>Parabéns! Você se parace mais com ${personagem}!</h3>
+                <h3>Parabéns! Você se parace mais com ${nomePersonagem}!</h3>
                 <button onclick="reiniciarQuiz()">Reiniciar Quiz</button>
             `;
             document.getElementById('quiz-content').innerHTML = resultado;
