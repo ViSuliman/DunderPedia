@@ -3,19 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="quizPersonalidade.css">
+    <link rel="stylesheet" href="../css/quizPersonalidade.css">
     <link rel="icon" href="./assets/icon/The Office.svg" type="image/x-icon">
     <title>Quiz Personalidade | Dunder Pedia</title>
 </head>
 <body>
 
-    <div class="quiz-container" id="div_quiz">
-        <h1 class="the">Quiz de Personalidade da Filial Scranton</h1>
-        <h2></h2>
-        <div id="quiz-content">
-        </div>
-        <div id="botao-iniciar-quiz" onclick="iniciarQuiz()"><p>Iniciar Quiz</p></div>
-    </div>
+    <div class="header">
+        <div class="navbar">
+           <img src="../assets/icon/2.svg" class="logo">
+           <ul>
+               <li><a href="home.html">Home</a></li>
+               <li><a href="the_office.html">The Office</a></li>
+               <li><a href="sobre_mim.html">Sobre Mim</a></li>
+           </ul>
+       </div>
+   </div>
+   <div class="quiz-container" id="div_quiz">
+       <h1 class="the">Quiz de personalidade da filial de Scranton!</h1>
+       <h2>Descubra com qual personagem você tem mais em comum!</h2>
+       <div id="quiz-content">
+       </div>
+       <div onclick="iniciarQuiz()" id="botao-iniciar-quiz"><p>Iniciar Quiz</p></div>
+   </div>
     <div class="footer">
         <div class="container">
             <div class="footer-logo">
@@ -37,90 +47,120 @@
 
     var lista_perguntas = [
         {
-         titulo:'Se um colega de trabalho está passando por um momento difícil, o que você faz?',
+         titulo:"Se um colega de trabalho está passando por um momento difícil, o que você faz?",
          opcoes: [
             {
-                descricao:'Organizo uma confraternização para animá-lo',
-                personagem:'Michael',
-                descricao:'Escuto e ofereço conselhos.',
-                personagem:'Pam',
-                descricao:'Dou espaço para que ele possa refletir.',
-                personagem:'Stanley',
-                descricao:'Chamo ele para almoçar fora e conversar.',
-                personagem:'Jim'
-
+                descricao:"Organizo uma confraternização para animá-lo",
+                personagem:"Michael"
+            },
+            {
+                descricao:"Escuto e ofereço conselhos.",
+                personagem:"Pam"
+            },
+            {descricao:"Dou espaço para que ele possa refletir.",
+                personagem:"Stanley"
+            },
+                {descricao:"Chamo ele para almoçar fora e conversar.",
+                personagem:"Jim"
             }],
         },
         {
-         titulo:'Qual é a sua ideia de um bom momento com amigos no escritório?',
+         titulo:"Qual é a sua ideia de um bom momento com amigos no escritório?",
          opcoes: [
             {
-                descricao:'Organizar um jogo de perguntas e respostas.',
-                personagem:'Dwight',
-                descricao:'Participar de uma atividade criativa em grupo.',
-                personagem:'Pam',
-                descricao:' Assistir a um filme ou série juntos.',
-                personagem:'Toby',
-                descricao:'Sair para uma noite de jogos ou boliche.',
-                personagem:'Jim'
+                descricao:"Organizar um jogo de perguntas e respostas.",
+                personagem:"Dwight"
+            },
+            {
+                descricao:"Participar de uma atividade criativa em grupo.",
+                personagem:"Pam"
+            },
+            {descricao:"Assistir a um filme ou série juntos.",
+                personagem:"Toby"
+            },
+            {
+                descricao:"Sair para uma noite de jogos ou boliche.",
+                personagem:"Jim"
             }],
         },
         {
-         titulo:'Como você lida com conflitos entre amigos no trabalho?',
+         titulo:"Como você lida com conflitos entre amigos no trabalho?",
          opcoes: [
             {
-                descricao:'Tento fazer uma mediação e resolver o problema.',
-                personagem:'Michael',
-                descricao:'Escuto ambos os lados e tento entender os sentimentos.',
-                personagem:'Pam',
-                descricao:'Evito o conflito e deixo que se resolvam sozinhos.',
-                personagem:'Stanley',
-                descricao:'Enfrento o problema diretamente e sugiro uma solução mais prática.',
-                personagem:'Dwight'
-            }],
+                descricao:"Tento fazer uma mediação e resolver o problema.",
+                personagem:"Michael"
+            },
+            {
+                descricao:"Escuto ambos os lados e tento entender os sentimentos.",
+                personagem:"Pam"
+            },
+            { 
+                descricao:"Evito o conflito e deixo que se resolvam sozinhos.",
+                personagem:"Stanley"
+            },
+            {
+                descricao:"Enfrento o problema diretamente e sugiro uma solução mais prática.",
+                personagem:"Dwight"}
+            ],
         },
         {
-        titulo:'Se você e seu amigo têm uma tarefa difícil para concluir, como você aborda a situação?',
+        titulo:"Se você e seu amigo têm uma tarefa difícil para concluir, como você aborda a situação?",
         opcoes: [
             {
-                descricao:'Divido a tarefa e faço uma competição amigável.',
-                personagem:'Dwight',
-                descricao:'Colaboro e trabalho junto para garantir que tudo saia perfeito.',
-                personagem:'Pam',
-                descricao:' Faço minha parte e confio que ele fará a dele.',
-                personagem:'Stanley',
-                descricao:'Procuro maneiras de tornar a tarefa mais divertida.',
-                personagem:'Jim'
-
+                descricao:"Divido a tarefa e faço uma competição amigável.",
+                personagem:"Dwight"
+            },
+            { 
+                descricao:"Colaboro e trabalho junto para garantir que tudo saia perfeito.",
+                personagem:"Pam"
+            },
+            {
+                descricao:" Faço minha parte e confio que ele fará a dele.",
+                personagem:"Stanley"
+            },
+            {
+                descricao:"Procuro maneiras de tornar a tarefa mais divertida.",
+                personagem:"Jim"
             }], 
         },
         {
-        titulo:'Se você e um amigo discutem, como você lida com isso?',
+        titulo:"Se você e um amigo discutem, como você lida com isso?",
         opcoes: [ 
             {
-                descricao:'Tento resolver o problema imediatamente.',
-                personagem: 'Michael',
-                descricao:'Dou um tempo para esfriar a cabeça antes de conversar.',
-                personagem: 'Pam',
-                descricao:'Tento esquecer e seguir em frente sem tocar no assunto.',
-                personagem: 'Jim',
-                descricao:'Peço desculpas mesmo se eu não estiver errado.',
-                personagem: 'Toby'
+                descricao:"Tento resolver o problema imediatamente.",
+                personagem: "Michael"
+            },
+            {
+                descricao:"Dou um tempo para esfriar a cabeça antes de conversar.",
+                personagem: "Pam"
+            },
+            { 
+                descricao:"Tento esquecer e seguir em frente sem tocar no assunto.",
+                personagem: "Jim"
+            },
+                {descricao:"Peço desculpas mesmo se eu não estiver errado.",
+                personagem: "Toby"
             }],  
         },
         {
-        titulo:'O que você acha mais importante em uma amizade?',
+        titulo:"O que você acha mais importante em uma amizade?",
         opcoes: [
             {
-                descricao: 'Honestidade.',
-                personagem: "Jim",
-                descricao: 'Diversão.',
-                personagem: 'Michael',
-                descricao: 'Lealdade.',
-                personagem: 'Dwight',
-                descricao: 'Apoio mútuo.',
-                personagem: 'Pam'
-            }],  
+                descricao: "Honestidade.",
+                personagem: "Jim"
+            },
+            { 
+                descricao: "Diversão.",
+                personagem: "Michael"
+            },
+            { 
+                descricao: "Lealdade.",
+                personagem: "Dwight"
+            },
+            {
+                descricao: "Apoio mútuo.",
+                personagem: "Pam"}
+            ],  
         }
     ]
 
@@ -145,7 +185,7 @@
                 var pergunta = lista_perguntas[indiceQuestaoAtual];
                 var opcoes = "";
                 for (var i = 0; i < pergunta.opcoes.length; i++) {
-                    opcoes += `<button onclick="responder(${pergunta.opcoes[i].personagem})">${pergunta.opcoes[i].descricao}</button>`
+                    opcoes += `<button onclick="responder('${pergunta.opcoes[i].personagem}')">${pergunta.opcoes[i].descricao}</button>`
                 }
                 document.getElementById('quiz-content').innerHTML = `
                     <h3>${pergunta.titulo}</h3>
@@ -155,10 +195,11 @@
                 `;
             } else {
                 mostrarResultado();
-            }
-        }
-
+                }
+                }
+                
         function responder(opcaoEscolhida) {
+        console.log(opcaoEscolhida);
             var pergunta = lista_perguntas[indiceQuestaoAtual];
             if (opcaoEscolhida == "Michael") {
                 michael++;
@@ -172,13 +213,30 @@
                 stanley++;
             } else if (opcaoEscolhida == "Toby"){
                 toby++;
-            }
+            } 
             indiceQuestaoAtual++;
             mostrarPergunta();
         }
 
         function mostrarResultado() {
-            fetch(`/resultado/2/${sessionStorage.ID_USUARIO}/${pontuacao}`, { method: "POST", cache: 'no-store' }).then(function (response) {
+            var personagemPersonalidade = -1;
+            if (michael > pam && michael > jim && michael > dwight && michael > stanley  && michael > toby){
+                personagem = 1;
+            } else if(dwight > pam && dwight > jim && dwight > michael && dwight > stanley  && dwight > toby){
+                personagem = 2;
+            } else if(jim > pam && jim > dwight && jim > michael && jim > stanley  && jim > toby){
+                personagem = 3;
+            } else if(pam > michael && pam > jim && pam > stanley && pam > dwight && pam > toby){
+                personagem = 4;
+            } else if(stanley > pam && stanley > jim && stanley > michael && stanley > dwight  && stanley > toby){
+                personagem = 7;
+            } else if(toby > pam && toby > jim && toby > michael && toby > stanley  && toby > dwight){
+                personagem = 13;
+            } else{
+                personagem = 10;
+            }
+            
+            fetch(`/resultado/2/${sessionStorage.ID_USUARIO}/${personagemPersonalidade}`, { method: "POST", cache: 'no-store' }).then(function (response) {
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(`Resultado inserido com sucesso!`);
