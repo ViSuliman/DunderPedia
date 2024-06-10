@@ -9,25 +9,22 @@ email varchar(50),
 senha varchar(20),
 personagem_favorito int);
 
-
-select * from usuario;
-
 create table quiz(
 idQuiz int primary key AUTO_INCREMENT,
 tipo varchar(50));
 
-create table resultado(
-idResultado int primary key AUTO_INCREMENT,
-nome varchar(50),
-valor int,
-fkQuiz int,
-foreign key (fkQuiz) references quiz(idQuiz));
-
-create table resultado_usuario(
+create table resultado (
 fkUsuario int,
-fkResultado int,
-data_hora datetime,
+fkQuiz int,
+data_hora datetime DEFAULT CURRENT_TIMESTAMP,
+valor int,
 foreign key (fkUsuario) references usuario(idUsuario),
-foreign key (fkResultado) references resultado(idResultado),
-primary key (fkUsuario, fkResultado)
+foreign key (fkQuiz) references quiz(idQuiz),
+primary key (fkUsuario, fkQuiz, data_hora)
 );
+
+
+
+
+
+

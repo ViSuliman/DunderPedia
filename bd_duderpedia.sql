@@ -13,7 +13,12 @@ personagem_favorito int);
 select * from usuario;
 
 select personagem_favorito, count(personagem_favorito) as Contador from usuario group by personagem_favorito order by Contador desc limit 1; 
-
+SELECT valor as numeroPersonagem, 
+        count(valor) as Contador 
+        FROM resultado 
+        GROUP BY numeroPersonagem 
+        ORDER BY Contador DESC 
+        LIMIT  1;
 create table quiz(
 idQuiz int primary key AUTO_INCREMENT,
 tipo varchar(50));
@@ -40,5 +45,7 @@ WHERE resultado.fkQuiz = 1
 GROUP BY usuario.nome
 ORDER BY media_acertos DESC
 LIMIT 5;
+
+
 
 
