@@ -1,96 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/cadastro.css">
-    <link rel="icon" href="./assets/icon/The Office.svg" type="image/x-icon">
-    <title>Dunder Pedia | Cadastro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/cadastro.css">
+  <link rel="icon" href="./assets/icon/The Office.svg" type="image/x-icon">
+  <title>Dunder Pedia | Cadastro</title>
 </head>
+
 <body>
-    <div class="container">
-        <div class="column" data-aos="fade-up" data-aos-duration="1800">
-            <span>Cadastre-se</span>
-            <div class="form">
-                <div class="input_container">
-                    <img src="./assets/imgs/Sample_User_Icon.png" alt="icon-user">
-                    <input type="text" id="input_nome" placeholder="Nome">
-                </div>
-                <div class="input_container">
-                    <img src="./assets/imgs/email_icon.svg" alt="icon-email">
-                    <input type="text" id="input_email" placeholder="E-mail">
-                </div>
-                <div class="input_container">
-                    <img src="./assets/imgs/password.png" alt="icon-password">
-                    <div id="button_fechar" onclick="fechar()">
-                        <img src="./assets/imgs/olho_aberto.png" id="img_fechar">
-                    </div>
-                    <input type="password" id="input_senha" placeholder="Senha">
-                </div>
-                <div class="input_container">
-                    <img src="./assets/imgs/password.png" alt="icon-password">
-                    <div id="button_ocultar" onclick="ocultar()">
-                        <img src="./assets/imgs/olho_aberto.png" id="img_ocultar">
-                    </div>
-                    <input type="password" id="ipt_senha" placeholder="Confirmar senha">
-                </div>
-                <div class="input_container">
-                    <select id="select_personagem">
-                        <option value="#">Selecione seu personagem favorito</option>
-                        <option value="1">Michael Scott</option>
-                        <option value="2">Dwight Schrute</option>
-                        <option value="3">Jim Halpert</option>
-                        <option value="4">Pam Beesly</option>
-                        <option value="5">Ryan Howard</option>
-                        <option value="6">Andy Bernard</option>
-                        <option value="7">Stanley Hudson</option>
-                        <option value="8">Kevin Malone</option>
-                        <option value="9">Meredith Palmer</option>
-                        <option value="10">Angela Martin</option>
-                        <option value="11">Oscar Martinez</option>
-                        <option value="12">Phyllis Vance</option>
-                        <option value="13">Toby Flenderson</option>
-                        <option value="14">Kelly Kapoor</option>
-                        <option value="15">Creed Bratton</option>
-                        <option value="16">Erin Hannon</option>
-                    </select>
-                </div>
-                <div id="div_erro"></div>
-                <button id="btn-cadastrar" onclick="cadastrar()">Cadastrar</button>
-                <p class="nova-conta">Já possui uma conta?
-                <a href="login.html">Faça Login</a></p>
-           </div>
+  <div class="form-image">
+    <a href="index.html">
+      <img src="./assets/imgs/fechar_cadastro.png" class="close-form">
+    </a>
+  </div>
+  <div class="container">
+    <div class="column" data-aos="fade-up" data-aos-duration="1800">
+      <span>Cadastre-se</span>
+      <div class="form">
+        <div class="input_container">
+          <img src="./assets/imgs/Sample_User_Icon.png" alt="icon-user">
+          <input type="text" id="input_nome" placeholder="Nome">
         </div>
+        <div class="input_container">
+          <img src="./assets/imgs/email_icon.svg" alt="icon-email">
+          <input type="text" id="input_email" placeholder="E-mail">
+        </div>
+        <div class="input_container">
+          <img src="./assets/imgs/password.png" alt="icon-password">
+          <div id="button_fechar" onclick="fechar()">
+            <img src="./assets/imgs/olho_aberto.png" id="img_fechar">
+          </div>
+          <input type="password" id="input_senha" placeholder="Senha">
+        </div>
+        <div class="input_container">
+          <img src="./assets/imgs/password.png" alt="icon-password">
+          <div id="button_ocultar" onclick="ocultar()">
+            <img src="./assets/imgs/olho_aberto.png" id="img_ocultar">
+          </div>
+          <input type="password" id="ipt_senha" placeholder="Confirmar senha">
+        </div>
+        <div class="input_container">
+          <select id="select_personagem">
+            <option value="#">Selecione seu personagem favorito</option>
+            <option value="1">Michael Scott</option>
+            <option value="2">Dwight Schrute</option>
+            <option value="3">Jim Halpert</option>
+            <option value="4">Pam Beesly</option>
+            <option value="5">Ryan Howard</option>
+            <option value="6">Andy Bernard</option>
+            <option value="7">Stanley Hudson</option>
+            <option value="8">Kevin Malone</option>
+            <option value="9">Meredith Palmer</option>
+            <option value="10">Angela Martin</option>
+            <option value="11">Oscar Martinez</option>
+            <option value="12">Phyllis Vance</option>
+            <option value="13">Toby Flenderson</option>
+            <option value="14">Kelly Kapoor</option>
+            <option value="15">Creed Bratton</option>
+            <option value="16">Erin Hannon</option>
+          </select>
+        </div>
+        <div id="div_erro"></div>
+        <button id="btn-cadastrar" onclick="cadastrar()">Cadastrar</button>
+        <p class="nova-conta">Já possui uma conta?
+          <a href="login.html">Faça Login</a>
+        </p>
+      </div>
     </div>
+  </div>
 </body>
+
 </html>
 
 <script>
-      var input_senha = document.getElementById('input_senha');
-      var ipt_senha = document.getElementById('ipt_senha')
-        var button_fechar = document.getElementById('button_fechar');
-        var button_ocultar = document.getElementById('button_ocultar');
+  var input_senha = document.getElementById('input_senha');
+  var ipt_senha = document.getElementById('ipt_senha')
+  var button_fechar = document.getElementById('button_fechar');
+  var button_ocultar = document.getElementById('button_ocultar');
 
-        function fechar() {
-            if (input_senha.type == "password") {
-                input_senha.type = "text";
-                button_fechar.innerHTML = '<img id="img_fechar" src="./assets/imgs/olho_fechado.png">';
-            } else {
-                input_senha.type = "password";
-                button_fechar.innerHTML = '<img id="img_fechar" src="./assets/imgs/olho_aberto.png">';
-            }
-        }
+  function fechar() {
+    if (input_senha.type == "password") {
+      input_senha.type = "text";
+      button_fechar.innerHTML = '<img id="img_fechar" src="./assets/imgs/olho_fechado.png">';
+    } else {
+      input_senha.type = "password";
+      button_fechar.innerHTML = '<img id="img_fechar" src="./assets/imgs/olho_aberto.png">';
+    }
+  }
 
-        function ocultar() {
-            if (ipt_senha.type == "password") {
-                ipt_senha.type = "text";
-                button_ocultar.innerHTML = '<img id="img_ocultar" src="./assets/imgs/olho_fechado.png">';
-            } else {
-                ipt_senha.type = "password";
-                button_ocultar.innerHTML = '<img id="img_ocultar" src="./assets/imgs/olho_aberto.png">';
-            }
-        }
-      
+  function ocultar() {
+    if (ipt_senha.type == "password") {
+      ipt_senha.type = "text";
+      button_ocultar.innerHTML = '<img id="img_ocultar" src="./assets/imgs/olho_fechado.png">';
+    } else {
+      ipt_senha.type = "password";
+      button_ocultar.innerHTML = '<img id="img_ocultar" src="./assets/imgs/olho_aberto.png">';
+    }
+  }
+
   function cadastrar() {
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
@@ -106,86 +115,87 @@
       confirmacaoSenhaVar == "" ||
       personagemFavoritoVar == ""
     ) {
-    //   cardErro.style.display = "block";
-    //   mensagem_erro.innerHTML =
-        alert("Preencha todos os campos!");
+      //   cardErro.style.display = "block";
+      //   mensagem_erro.innerHTML =
+      alert("Preencha todos os campos!");
 
       return false;
-    } else if(senhaVar != confirmacaoSenhaVar) {
+    } else if (senhaVar != confirmacaoSenhaVar) {
       setInterval(sumirMensagem, 5000);
-    } else if(senhaVar.lengthtt  < 6){
+    } else if (senhaVar.length < 6) {
       alert("a senha deve conter ao menos 6 caracteres")
     }
 
     var caracteresEspeciais = "!@#$%^&*()-+";
     var temCaracterEspecial = false;
 
-    for (var i = 0; i < senha.length; i++) {
-                if (caracteresEspeciais.indexOf(senha[i]) !== -1) {
-                    temCaracterEspecial = true;
-                    break;
-                }
-            }
+    for (var i = 0; i < senhaVar.length; i++) {
+      if (caracteresEspeciais.indexOf(senhaVar[i]) !== -1) {
+        temCaracterEspecial = true;
+        break;
+      }
+    }
 
-            if (!temCaracterEspecial) {
-                div_mensagem.innerHTML += `A senha deve conter pelo menos um caractere especial<br>`;
-            } else {
-                var indice_arroba = email.indexOf("@");
+    if (!temCaracterEspecial) {
+      div_erro.innerHTML = `A senha deve conter pelo menos um caractere especial<br>`;
+    } else {
+      var indice_arroba = emailVar.indexOf("@");
 
-                if (indice_arroba < 0) {
-                    div_mensagem.innerHTML += `Email inválido<br>`;
-                } else {
-                    //window.location.href = "login.html";
-                    cadastrar()
-                }
-            }
+      if (indice_arroba < 0) {
+        div_erro.innerHTML = `Email inválido<br>`;
+      } else {
+        //window.location.href = "login.html";
+        // cadastrar()
         
-    
-
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        personagemFavoritoServer: personagemFavoritoVar
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-        //   cardErro.style.display = "block";
-
-        //   mensagem_erro.innerHTML =
-            alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
-
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
-
-          limparFormulario();
-          
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
+      // Enviando o valor da nova input
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nomeVar,
+          emailServer: emailVar,
+          senhaServer: senhaVar,
+          personagemFavoritoServer: personagemFavoritoVar
+        }),
       })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        
-      });
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+  
+          if (resposta.ok) {
+            //   cardErro.style.display = "block";
+  
+            //   mensagem_erro.innerHTML =
+            alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+  
+            setTimeout(() => {
+              window.location = "login.html";
+            }, "2000");
+  
+            limparFormulario();
+  
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+  
+        });
+  
+      return false;
+        }
+    }
 
-    return false;
+
+
   }
 
   function sumirMensagem() {
     div_erro.style.display = "none";
   }
-    </script>
+</script>
 </script>

@@ -13,9 +13,7 @@
         <div class="navbar">
            <img src="../assets/icon/2.svg" class="logo">
            <ul>
-               <li><a href="home.html">Home</a></li>
-               <li><a href="the_office.html">The Office</a></li>
-               <li><a href="sobre_mim.html">Sobre Mim</a></li>
+               <li><a href="dashboard.html">Dashboard</a></li>
            </ul>
        </div>
    </div>
@@ -24,7 +22,7 @@
        <h2>Descubra com qual personagem você tem mais em comum!</h2>
        <div id="quiz-content">
        </div>
-       <div onclick="iniciarQuiz()" id="botao-iniciar-quiz"><p>Iniciar Quiz</p></div>
+       <div onclick="iniciarQuiz()" id="botao-iniciar-quiz" class="button-start"><p>Iniciar Quiz</p></div>
    </div>
     <div class="footer">
         <div class="container">
@@ -260,6 +258,7 @@
             var resultado = `
                 <h3>Parabéns! Você se parace mais com ${nomePersonagem}!</h3>
                 <button onclick="reiniciarQuiz()">Reiniciar Quiz</button>
+                <a href="dashboard.html"><button onclick="voltarDashboard()">Voltar para a Dashboard</button></a>
             `;
             document.getElementById('quiz-content').innerHTML = resultado;
         }

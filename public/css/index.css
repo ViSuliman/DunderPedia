@@ -232,44 +232,47 @@ body {
   .footer {
     background-color: #333;
     color: #fff;
-    padding: 20px;
+    padding: 20px 0;
+}
+
+.footer .container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-  }
-  
-  .footer .container {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-  }
-  
-  .footer-logo img {
-    width: 50px;
-    height: auto;
-  }
-  
-  .footer-copyrigth {
-    flex-grow: 1;
     text-align: center;
-  }
-  
-  .footer-copyrigth span {
-    display: block;
+}
+
+.footer-logo img {
+    max-width: 50px;
+    margin-bottom: 20px;
+}
+
+.footer-copyrigth {
     font-size: 14px;
-  }
-  
-  .footer-social a {
+    margin-bottom: 20px;
+}
+
+.footer-copyrigth a{
+    text-decoration: none;
+    color: #FFC0CB;
+}
+.footer-copyrigth span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.footer-social a {
     margin: 0 10px;
-  }
-  
-  .footer-social img {
+    display: inline-block;
+}
+
+.footer-social img {
     width: 24px;
-    height: auto;
+    height: 24px;
     transition: transform 0.3s;
-  }
-  
-  .footer-social img:hover {
-    transform: scale(1.2);
-  }
+}
+
+.footer-social img:hover {
+    transform: scale(1.1);
+}
   

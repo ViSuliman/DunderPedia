@@ -12,9 +12,9 @@
     <div class="navbar">
         <img src="./assets/icon/2.svg" class="logo">
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="the_office.html">The Office</a></li>
-            <li><a href="sobre_mim.html">Sobre Mim</a></li>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="minhaHistoria.html">Minha História</a></li>
+            <li><a href="cadastro.html">Cadastrar</a></li>
         </ul>
     </div>
 
@@ -28,10 +28,10 @@
                 </div>
                 <div class="input_container">
                     <img src="./assets/imgs/password.png" alt="icon-password">
+                    <input type="password" id="senha_input" placeholder="Senha">
                     <div id="button_fechar" onclick="fechar()">
                         <img src="./assets/imgs/olho_aberto.png" id="img_fechar">
                     </div>
-                    <input type="password" id="senha_input" placeholder="Senha">
                 </div>
                 <button id="btn-login" onclick="login()">Login</button>
             </div>
@@ -40,6 +40,19 @@
 </body>
 </html>
 <script>
+    var senha_input = document.getElementById('senha_input');
+    var button_fechar = document.getElementById('button_fechar');
+
+function fechar() {
+            if (senha_input.type == "password") {
+                senha_input.type = "text";
+                button_fechar.innerHTML = '<img id="img_fechar" src="./assets/imgs/olho_fechado.png">';
+            } else {
+                senha_input.type = "password";
+                button_fechar.innerHTML = '<img id="img_fechar" src="./assets/imgs/olho_aberto.png">';
+            }
+        }
+
     function login() {
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
@@ -93,7 +106,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
+                    // finalizarAguardar(texto);
                 });
             }
 
@@ -105,7 +118,7 @@
     }
 
     function sumirMensagem() {
-        cardErro.style.display = "none"
+        // cardErro.style.display = "none"
     }
 
    

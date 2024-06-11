@@ -340,7 +340,8 @@
             datasets: [{
                 label: 'Questões',
                 data: [totalAcertosConhecimentoPessoal, 10 - totalAcertosConhecimentoPessoal],
-                borderWidth: 1
+                borderWidth: 1,
+                backgroundColor: ['#28a745', '#dc3545'],
             }]
         };
 
@@ -363,7 +364,28 @@
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        grid: {
+                            color: 'black',
+                        },
+                        ticks: {
+                            color: 'black'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'black',
+                        },
+                        ticks: {
+                            color: 'black'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'black' 
+                        }
                     }
                 }
             }
@@ -391,7 +413,6 @@
                 if (resposta.ok) {
                     resposta.json().then((resposta) => {
                         console.log('Resposta do banco: ' + resposta[0]);
-                        teste.innerHTML = resposta[0].Contador;
                         iconPersonagemFavoritoGeral(resposta[0].personagem_favorito);
                     })
 
@@ -423,7 +444,7 @@
             labels: labels,
             datasets: [{
                 label: 'Ranking',
-                data: data,
+                data: data
             }]
         };
 
@@ -443,6 +464,34 @@
         const config = {
         type: 'line',
         data: dados,
+        options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'black',
+                        },
+                        ticks: {
+                            color: 'black'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'black',
+                        },
+                        ticks: {
+                            color: 'black'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'black' 
+                        }
+                    }
+                }
+            }
         };
 
         // Adicionando gráfico criado em div na tela

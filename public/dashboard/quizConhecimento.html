@@ -12,9 +12,7 @@
          <div class="navbar">
             <img src="../assets/icon/2.svg" class="logo">
             <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="the_office.html">The Office</a></li>
-                <li><a href="sobre_mim.html">Sobre Mim</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
             </ul>
         </div>
     </div>
@@ -23,7 +21,7 @@
         <h2>Teste o seu conhecimento sobre The Office!</h2>
         <div id="quiz-content">
         </div>
-        <div onclick="iniciarQuiz()" id="botao-iniciar-quiz"><p>Iniciar Quiz</p></div>
+        <div onclick="iniciarQuiz()" id="botao-iniciar-quiz" class="button-start"><p>Iniciar Quiz</p></div>
     </div>
     <div class="footer">
         <div class="container">
@@ -39,24 +37,8 @@
                     Todos os direitos reservados
                 </span>
             </div>
-
-            <div class="footer-social">
-                <a href="https://github.com/ViSuliman">
-                    <img src="../assets/icon/icons8-github.svg">
-                </a>
-                <a href="https://www.instagram.com/vilemes_/">
-                    <img src="../assets/icon/instagram-seeklogo.svg">
-                </a>
-                <a href="#">
-                    <img src="../assets/icon/linkedin-svgrepo-com.svg">
-                </a>
-                <a href="mailto: vitoria.suliman@sptech.school">
-                    <img src="../assets/icon/email-svgrepo-com.svg">
-                </a>
-            </div>
         </div>
     </div>
-  
 </body>
 
 <script>
@@ -165,6 +147,7 @@
             var resultado = `
                 <h3>Você acertou ${pontuacao} de ${lista_perguntas.length} perguntas!</h3>
                 <button onclick="reiniciarQuiz()">Reiniciar Quiz</button>
+                <a href="dashboard.html"><button onclick="voltarDashboard()">Voltar para a Dashboard</button></a> 
             `;
             document.getElementById('quiz-content').innerHTML = resultado;
         }
@@ -174,6 +157,8 @@
             pontuacao = 0;
             iniciarQuiz();
         }
+
+       
         
         
 </script>

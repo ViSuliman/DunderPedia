@@ -1,3 +1,8 @@
+@font-face {
+    font-family: theOffice;
+    src: url(../assets/fonts/TYPIST.TTF);
+}
+
 /* Reset and Box-Sizing */
 * {
     margin: 0;
@@ -74,7 +79,7 @@ html, body {
     color: #ffffff;
     height: 100%;
     width: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/imgs/office_login.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/imgs/fundo_login.jpg);
     background-size: cover;
     background-position: center;
     display: flex;
@@ -112,7 +117,7 @@ a {
 }
 
 .column span {
-    font-family: 'theOffice', sans-serif;
+    font-family: theOffice;
     font-weight: bold;
     font-size: 28px;
     color: #333333;
@@ -135,8 +140,9 @@ a {
     position: absolute;
     width: 24px;
     height: 24px;
-    top: 12px;
-    left: 12px;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
 }  
 
 .input_container input {
@@ -149,6 +155,7 @@ a {
     background-color: #fff;
     width: 100%;
     transition: border-color 0.3s, box-shadow 0.3s;
+    font-family: theOffice;
 }  
 
 .input_container input:focus {
@@ -189,15 +196,17 @@ a {
 }
 
 /* Icon Button Styles */
-#button_fechar, #button_ocultar {
-    cursor: pointer;
+#button_fechar {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    padding: 10px;
-    transition: transform 0.3s;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+#button_fechar img {
+    width: 24px;
+    height: 24px;
 }
 
 #button_fechar:hover, #button_ocultar:hover {
